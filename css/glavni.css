@@ -2,6 +2,13 @@
     font-size: 250%;
 }
 
+.cover {
+    position: relative;
+}
+.cover .col {
+    position: absolute; z-index: 1; top: 0; left: 0;
+}
+
 /* custom template */
 html, body {
     height: 100%;
