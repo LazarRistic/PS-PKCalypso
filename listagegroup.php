@@ -2,17 +2,20 @@
 /**
  * Created by PhpStorm.
  * User: Lazar
- * Date: 2/6/15
- * Time: 1:44 PM
+ * Date: 2/13/15
+ * Time: 3:34 PM
  */
 
 namespace root;
 
-session_start();
+use root\baza\BazaController;
 
+include "baza\BazaController.php";
 
+$bazaController = new BazaController();
 
 ?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -93,8 +96,8 @@ session_start();
                         <li><a href="#">O nama</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
-                                Plesni Klub
-                                <span class="caret"></span>
+    Plesni Klub
+<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                                 <li class="dropdown-header"><a href="#">Instruktori</a></li>
@@ -114,8 +117,8 @@ session_start();
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                Plesna Skola
-                                <span class="caret"></span>
+    Plesna Skola
+<span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                                 <li class="dropdown-header"><a href="#">Hitni casovi</a></li>
@@ -309,10 +312,12 @@ session_start();
 
         <div class="row col-sm-6 col-md-4">
             <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                <?php
+                $ageGroup = $bazaController->getAgeGroup(1);
+                if ($ageGroup->getGood() == true) {
+                    echo $ageGroup->getObject()->getName();
+                }
+                ?>
             </p>
         </div>
 
@@ -320,8 +325,8 @@ session_start();
             <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
 
             <p>Et natum feugait cum, audire debitis ne est. Et tempor vivendo consulatu has, inani volumus ei eam. Vis blandit evertitur mediocritatem te. Nam cu quod sint expetenda.</p>
