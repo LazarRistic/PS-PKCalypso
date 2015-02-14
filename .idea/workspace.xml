@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52c36062-0c59-41fa-9661-633ec2d44065" name="Default" comment="Popravljen Dancer">
+    <list default="true" id="52c36062-0c59-41fa-9661-633ec2d44065" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ITEH Domaci 3.iws" />
@@ -39,7 +39,7 @@
       <file leaf-file-name="Dancer.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/basic_information/Dancer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="145" column="7" selection-start="2551" selection-end="2551" vertical-scroll-proportion="2.0592992" vertical-offset="173" max-vertical-offset="4607">
+            <state line="144" column="13" selection-start="2527" selection-end="2527" vertical-scroll-proportion="0.9442947" vertical-offset="1397" max-vertical-offset="4607">
               <folding>
                 <element signature="e#6#87#0" expanded="true" />
               </folding>
@@ -50,11 +50,11 @@
       <file leaf-file-name="BazaBrokerSQL.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/baza/BazaBrokerSQL.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="42" selection-start="226" selection-end="226" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="1496">
+            <state line="84" column="26" selection-start="2088" selection-end="2088" vertical-scroll-proportion="-36.923077" vertical-offset="383" max-vertical-offset="1496">
               <folding>
                 <element signature="e#111#145#0" expanded="true" />
-                <marker date="1423946375541" expanded="true" signature="1140:1160" placeholder="SELECT * FRO..dancer..." />
-                <marker date="1423946375541" expanded="true" signature="1731:1754" placeholder="SELECT * FRO..age_group..." />
+                <marker date="1423946735223" expanded="true" signature="1140:1160" placeholder="SELECT * FRO..dancer..." />
+                <marker date="1423946735223" expanded="true" signature="1732:1755" placeholder="SELECT * FRO..age_group..." />
               </folding>
             </state>
           </provider>
@@ -341,7 +341,11 @@
       <created>1423840942281</created>
       <updated>1423840942281</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Popravljen Dancer.php i BazaBrokerSQL.php">
+      <created>1423946692461</created>
+      <updated>1423946692461</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -389,7 +393,8 @@
     <MESSAGE value="Dodata online baza, Message clasa za slanje odgovora, listagegroup.php stranica, BazaBroker za SQL, BazaController. AgeGroup i Dance classe" />
     <MESSAGE value="BazaBrokerSQL" />
     <MESSAGE value="Popravljen Dancer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Popravljen Dancer" />
+    <MESSAGE value="Popravljen Dancer.php i BazaBrokerSQL.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Popravljen Dancer.php i BazaBrokerSQL.php" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -556,18 +561,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/baza/BazaBrokerSQL.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="42" selection-start="226" selection-end="226" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="1496">
+        <state line="84" column="26" selection-start="2088" selection-end="2088" vertical-scroll-proportion="-36.923077" vertical-offset="383" max-vertical-offset="1496">
           <folding>
             <element signature="e#111#145#0" expanded="true" />
-            <marker date="1423946375541" expanded="true" signature="1140:1160" placeholder="SELECT * FRO..dancer..." />
-            <marker date="1423946375541" expanded="true" signature="1731:1754" placeholder="SELECT * FRO..age_group..." />
+            <marker date="1423946735223" expanded="true" signature="1140:1160" placeholder="SELECT * FRO..dancer..." />
+            <marker date="1423946735223" expanded="true" signature="1732:1755" placeholder="SELECT * FRO..age_group..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/basic_information/Dancer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="7" selection-start="2551" selection-end="2551" vertical-scroll-proportion="2.0592992" vertical-offset="173" max-vertical-offset="4607">
+        <state line="144" column="13" selection-start="2527" selection-end="2527" vertical-scroll-proportion="0.9442947" vertical-offset="1397" max-vertical-offset="4607">
           <folding>
             <element signature="e#6#87#0" expanded="true" />
           </folding>
