@@ -36,4 +36,16 @@ class BazaController {
         return Message::Exeption(false, new \Exception("Nismo nasli AgeGroup sa zadatim id-em") );
     }
 
+
+    public function getAllAgeGroup() {
+        $bazaBroker = new BazaBrokerSQL();
+        $ageGroups[] = array();
+        $ageGroups = $bazaBroker->getAllAgeGroup();
+        if (empty($ageGroups)) {
+            return Message::Exeption(false, new \Exception("Nema ni jedan Age Group u bazi"));
+        } else {
+            return Message::Exeption(true, $ageGroups);
+        }
+    }
+
 } 

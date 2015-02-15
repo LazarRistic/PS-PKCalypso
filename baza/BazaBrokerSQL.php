@@ -70,19 +70,31 @@ class BazaBrokerSQL {
         return $dancer;
     }
 
-    public function getAllAgeGroup() {
-        $ageGroup = array();
+    public function getAllAgeGroupJSON() {
 
-        $sql = "SELECT * FROM age_group";
-        $result = mysqli_query($this->connection(), $sql);
-
-        if (mysqli_num_rows($result) > 0 ) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                $ageGroup[] = AgeGroup::newAgeGroup($row["id"], $row["name"]);
+        $sql="SELECT * FROM age_group ORDER BY id ASC";
+        if (!$result = mysqli_query($this->connection(), $sql)){
+            //ako se upit ne izvrši
+            echo '{"greska":"Nastala je greška pri izvršavanju upita."}';
+            exit();
+        } else {
+            //ako je upit u redu
+            if ($result->num_rows>0){
+                //ako ima rezultata u bazi
+                $niz = array();
+                while ($red=$result->fetch_object()){
+                    $niz[] = $red;
+                }
+                //print_r ($niz);
+                $niz_json = json_encode ($niz);
+                return ($niz_json);
+                //print ($niz_json);
+            } else {
+                //ako nema rezultata u bazi
+                echo '{"greska":"Nema rezultata."}';
             }
         }
         $this->connection()->close();
-        return $ageGroup;
     }
 
     public function getAllClass() {
