@@ -6,17 +6,6 @@
  * Time: 1:42 PM
  */
 
-use root\basic_information\AgeGroup;
-
-include "basic_information\AgeGroup.php";
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-<?php
 $url = 'http://localhost/ITEH%20Domaci%203/baza/RESTserver.php';
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -25,6 +14,12 @@ $curl_odgovor = curl_exec($curl);
 curl_close($curl);
 $json_objekat=json_decode($curl_odgovor);
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
 <table>
     <tr>
         <td>Id</td>

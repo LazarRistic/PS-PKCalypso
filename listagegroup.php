@@ -160,7 +160,7 @@ $bazaController = new BazaController();
     <div class="container visible-sm">
         <div class="row col-sm-12">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="index.php">Home</a></li>
+                <li class="active"><a href="rest/index.php">Home</a></li>
                 <li><a href="#">O nama</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Plesni Klub<span class="caret"></span>

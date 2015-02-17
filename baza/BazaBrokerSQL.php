@@ -11,10 +11,7 @@ namespace root\baza;
 use root\basic_information\Dancer;
 use root\basic_information\AgeGroup;
 use root\basic_information\Classes;
-
-include "../basic_information/Dancer.php";
-include "../basic_information/AgeGroup.php";
-include "../basic_information/Classes.php";
+use root\baza\DBInfo;
 
 
 
@@ -22,24 +19,17 @@ include "../basic_information/Classes.php";
 
 class BazaBrokerSQL {
 
-    private $DBHost = "sql3.freemysqlhosting.net";
-
-    private $DBName = "sql367451";
-
-    private $DBUser = "sql367451";
-
-    private $DBPass = "pY9!pV6%";
-
 
     /**
      * @return \mysqli connection
      */
     private function connection()
     {
-        $servername = $this->DBHost;
-        $username = $this->DBUser;
-        $password = $this->DBPass;
-        $dbname = $this->DBName;
+        $DBinfo = new DBInfo();
+        $servername = $DBinfo->getDBHost();
+        $username = $DBinfo->getDBUser();
+        $password = $DBinfo->getDBPass();
+        $dbname = $DBinfo->getDBName();
 
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -70,6 +60,10 @@ class BazaBrokerSQL {
         return $dancer;
     }
 
+    /**
+     * Used for REST, returns all AgeGroups from database
+     * @return string as JSON
+     */
     public function getAllAgeGroupJSON() {
 
         $sql="SELECT * FROM age_group ORDER BY id ASC";
@@ -97,6 +91,10 @@ class BazaBrokerSQL {
         $this->connection()->close();
     }
 
+    /**
+     * Returns all Classes from database
+     * @return array
+     */
     public function getAllClass() {
         $class = array();
 
