@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52c36062-0c59-41fa-9661-633ec2d44065" name="Default" comment="">
+    <list default="true" id="52c36062-0c59-41fa-9661-633ec2d44065" name="Default" comment="flightphp dodat, jos ne radi">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/AutoloadTest.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/baza/BazabrokerSQL.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/baza/DBInfo.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/flight/util/Collection.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basic_information/Dancer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/baza/DatabaseRest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/composer.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/jsonindent.php" />
-      <change type="DELETED" beforePath="D:\wamp\www\ITEH Domaci 3\index.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/flight/core/Dispatcher.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/DispatcherTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/flight/Engine.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/classes/Factory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/FilterTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/flight/Flight.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/FlightTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/classes/Hello.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/flight/core/Loader.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/LoaderTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/MapTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/RedirectTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/RegisterTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/RenderTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/flight/net/Request.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/RequestTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/flight/net/Response.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/flight/net/Route.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/flight/net/Router.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/RouterTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/classes/User.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/VERSION" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/VariableTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/flight/template/View.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/ViewTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/flight/autoload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/views/hello.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rest/tests/views/layouts/layout.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/basic_information/Dancer.php" afterPath="$PROJECT_DIR$/basic_information/Dancer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/klijent.php" afterPath="$PROJECT_DIR$/klijent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/listagegroup.php" afterPath="$PROJECT_DIR$/listagegroup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template.html" afterPath="$PROJECT_DIR$/template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rest/index.php" afterPath="$PROJECT_DIR$/rest/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/baza/BazabrokerSQL.php" afterPath="$PROJECT_DIR$/baza/BazabrokerSQL.php" />
     </list>
@@ -42,7 +68,7 @@
       <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rest/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="4" selection-start="245" selection-end="265" vertical-scroll-proportion="0.10905203" vertical-offset="0" max-vertical-offset="1403">
+            <state line="32" column="0" selection-start="933" selection-end="933" vertical-scroll-proportion="0.9315069" vertical-offset="0" max-vertical-offset="714">
               <folding />
             </state>
           </provider>
@@ -191,10 +217,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="php_installation_&lt;5.4.16&gt;" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1088" />
-    <option name="y" value="-848" />
-    <option name="width" value="1096" />
-    <option name="height" value="1896" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -386,11 +412,15 @@
       <created>1424026675150</created>
       <updated>1424026675150</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="flightphp dodat, jos ne radi">
+      <created>1424196550165</created>
+      <updated>1424196550165</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1088" y="-848" width="1096" height="1896" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979318" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -400,10 +430,10 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24814814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13958333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17495808" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32982087" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979318" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -443,7 +473,8 @@
     <MESSAGE value="Nesto novo 2" />
     <MESSAGE value="Nesto novo 23" />
     <MESSAGE value="REST GET dodat" />
-    <option name="LAST_COMMIT_MESSAGE" value="REST GET dodat" />
+    <MESSAGE value="flightphp dodat, jos ne radi" />
+    <option name="LAST_COMMIT_MESSAGE" value="flightphp dodat, jos ne radi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -831,7 +862,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rest/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="4" selection-start="245" selection-end="265" vertical-scroll-proportion="0.10905203" vertical-offset="0" max-vertical-offset="1403">
+        <state line="32" column="0" selection-start="933" selection-end="933" vertical-scroll-proportion="0.9315069" vertical-offset="0" max-vertical-offset="714">
           <folding />
         </state>
       </provider>
