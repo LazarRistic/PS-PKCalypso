@@ -7,13 +7,20 @@ $json_podaci = file_get_contents("php://input");
 Flight::set('json_podaci', $json_podaci );
 
 Flight::route('GET /', function(){
-    echo 'hello world!';
+    echo 'hello nestos!';
 });
-/*
+Flight::route('GET /sada', function () {
+    echo 'hello sada!';
+});
+
 Flight::route('/@name/@id', function($name, $id){
     echo "hello, $name ($id)!";
 });
-*/
+
+Flight::route('/proba', function () {
+    echo "hello, proba!";
+});
+
 Flight::route('GET /novosti.json', function(){
     header ("Content-Type: application/json; charset=utf-8");
     $db = Flight::db();
