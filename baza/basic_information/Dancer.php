@@ -9,7 +9,8 @@
 namespace root\basic_information;
 
 
-class Dancer {
+class Dancer
+{
 
     private $id;
 

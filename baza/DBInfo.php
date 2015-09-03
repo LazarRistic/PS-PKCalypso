@@ -11,13 +11,13 @@ namespace root\baza;
 
 class DBInfo {
 
-    private $DBHost = "sql3.freemysqlhosting.net";
+    private $DBHost = "localhost";
 
-    private $DBName = "sql367451";
+    private $DBName = "itehdomaci2";
 
-    private $DBUser = "sql367451";
+    private $DBUser = "root";
 
-    private $DBPass = "pY9!pV6%";
+    private $DBPass = "";
 
     /**
      * @return string
