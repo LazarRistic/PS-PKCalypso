@@ -1,41 +1,44 @@
 <?php
+
+use root\Controller;
+
 require 'flight/Flight.php';
 require 'jsonindent.php';
+require '../Controller.php';
 
 Flight::register('db', 'Database', array('rest'));
 $json_podaci = file_get_contents("php://input");
 Flight::set('json_podaci', $json_podaci );
 
+
 Flight::route('GET /', function(){
     echo 'hello nestos!';
 });
-Flight::route('GET /sada', function () {
-    echo 'hello sada!';
+
+Flight::route('GET|POST /register/@title/@address/@email/@coutry/@city/@website', function ($title, $address, $email, $coutry, $city, $website) {
+    $controller = new Controller();
+    echo $controller->registerDanceClub($title, $address, $email, $coutry, $city, $website);
 });
 
-Flight::route('/@name/@id', function($name, $id){
-    echo "hello, $name ($id)!";
+Flight::route('GET /dancer/json/@username', function ($username) {
+    header("Content-Type: application/json; charset=utf-8");
+    $controller = new \root\Controller();
+    $dancerJSON = $controller->loadUserFromUsernameJSON($username);
+    echo indent($dancerJSON);
 });
 
-Flight::route('/proba', function () {
-    echo "hello, proba!";
+Flight::route('GET /danceclub/all/xml', function () {
+    header("Content-Type: text/xml; charset=utf-8", 200);
+    $controller = new \root\Controller();
+    $dancerClubXML = $controller->loadAllDanceCLubsXML();
+    print $dancerClubXML->asXML();
 });
 
-Flight::route('GET /novosti.json', function(){
+Flight::route('/danceclub/all/json', function () {
     header ("Content-Type: application/json; charset=utf-8");
-    $db = Flight::db();
-    $db->select();
-    $niz=array();
-    while ($red=$db->getResult()->fetch_object()){
-        $niz[] = $red;
-    }
-    //JSON_UNESCAPED_UNICODE parametar je uveden u PHP verziji 5.4
-    //Omogućava Unicode enkodiranje JSON fajla
-    //Bez ovog parametra, vrši se escape Unicode karaktera
-    //Na primer, slovo č će biti \u010
-    $json_niz = json_encode ($niz,JSON_UNESCAPED_UNICODE);
-    echo indent($json_niz);
-    return false;
+    $controller = new \root\Controller();
+    $dancerClubJSON = $controller->loadAllDanceClubsJSON();
+    echo $dancerClubJSON;
 });
 
 
