@@ -5,9 +5,13 @@
  * Date: 28.8.2015.
  * Time: 7:45
  */
-use root\Controller;
+namespace root;
 
 include "Controller.php";
+
+
+session_start();
+$_SESSION["redirect"] = "register.php";
 ?>
 
 <!DOCTYPE html>
@@ -308,6 +312,27 @@ include "Controller.php";
             </li>
             <li><a href="#">Galerija</a></li>
             <li><a href="#">Kontakt</a></li>
+            <?php
+            if (empty($_SESSION["username"]) or empty($_SESSION["password"])) {
+                echo "<li><a href='login.php'>Log in</a></li>";
+            } else {
+                echo '
+                    <li class="dropdown"">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account Information<span class="caret"></span></a>
+                        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                            <li><a href="accountInformation.php">My information</a></li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Change</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" tabindex="-1">Change Account Information</a></li>
+                                    <li><a href="#">Change Username</a></li>
+                                    <li><a href="#">Change Password</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>';
+            }
+            ?>
         </ul>
     </div>
 </div>

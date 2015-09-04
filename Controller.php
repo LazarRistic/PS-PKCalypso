@@ -13,6 +13,7 @@ use root\baza\BazaBrokerSQL;
 
 include "baza/BazaBrokerSQL.php";
 
+
 class Controller
 {
 
@@ -71,5 +72,18 @@ class Controller
         $bazaBroker = new BazaBrokerSQL();
 
         return $bazaBroker->registerDanceClub($title, $address, $email, $country, $city, $website);
+    }
+
+    public function loginUser($username, $password)
+    {
+        $bazaBroker = new BazaBrokerSQL();
+        $listOfDancer = array();
+        $listOfDancer = $bazaBroker->getAllDancers();
+        foreach ($listOfDancer as $dancer) {
+            if ($dancer->getUsername() == $username and $dancer->getPassword() == $password) {
+                return true;
+            }
+        }
+        return false;
     }
 }

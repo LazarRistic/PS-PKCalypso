@@ -2,17 +2,18 @@
 /**
  * Created by PhpStorm.
  * User: Lazar
- * Date: 27.8.2015.
- * Time: 23:17
+ * Date: 3.9.2015.
+ * Time: 20:01
  */
 namespace root;
 
+include "Controller.php";
+
 session_start();
-$_SESSION["redirect"] = "finddancer.php";
 
+
+$controller = new Controller();
 ?>
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -34,26 +35,6 @@ $_SESSION["redirect"] = "finddancer.php";
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/
             respond.min.js"></script>
     <![endif]-->
-    <script>
-        function findDancer(dancer) {
-            if (dancer == "") {
-                document.getElementById("fillWithAjax").innerHTML = "";
-                return;
-            }
-            if (window.XMLHttpRequest) {
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("fillWithAjax").innerHTML = xmlhttp.responseText;
-                }
-            }
-            xmlhttp.open("GET", "ajaxFindDancer.php?dancer=" + dancer, true);
-            xmlhttp.send();
-        }
-    </script>
 </head>
 <body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -262,7 +243,7 @@ $_SESSION["redirect"] = "finddancer.php";
         <ul class="nav nav-tabs">
             <li><a href="index.php">Home</a></li>
             <li><a href="danceingclubs.php">Plesni Klubovi</a></li>
-            <li class="active"><a href="finddancer.php">Trazi Igraca</a></li>
+            <li><a href="finddancer.php">Trazi Igraca</a></li>
             <li><a href="register.php">Registujte Klub</a></li>
             <li><a href="#">O nama</a></li>
             <li class="dropdown">
@@ -304,27 +285,7 @@ $_SESSION["redirect"] = "finddancer.php";
             </li>
             <li><a href="#">Galerija</a></li>
             <li><a href="#">Kontakt</a></li>
-            <?php
-            if (empty($_SESSION["username"]) or empty($_SESSION["password"])) {
-                echo "<li><a href='login.php'>Log in</a></li>";
-            } else {
-                echo '
-                    <li class="dropdown"">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account Information<span class="caret"></span></a>
-                        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-                            <li><a href="accountInformation.php">My information</a></li>
-                            <li class="dropdown-submenu">
-                                <a tabindex="-1" href="#">Change</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#" tabindex="-1">Change Account Information</a></li>
-                                    <li><a href="#">Change Username</a></li>
-                                    <li><a href="#">Change Password</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>';
-            }
-            ?>
+            <li class="active"><a href="login.php">Login</a></li>
         </ul>
     </div>
 </div>
@@ -332,19 +293,44 @@ $_SESSION["redirect"] = "finddancer.php";
 
 <!-- Body -->
 <div class="container">
+    <?php
+    if (empty($_POST["username"]) or empty($_POST["password"])) {
+        $_SESSION["attempt"] = 1;
+        echo '
+            <div class="row col-sm-12 col-md-12">
+                </br>
+                <form action="login.php" method="post">
+                    UserName: <input type="text" class="form-control" name="username" placeholder="enter your username" required>
+                    Password: <input type="password" class="form-control" name="password" placeholder="enter your password" required>
+                    <button type="submit" class="form-control">Register</button>
+                </form>
+            </div>
+        ';
+    } elseif ($_SESSION["attempt"] == 4) {
+        echo("<SCRIPT LANGUAGE='JavaScript'>
+                window.alert('To many tries')
+                window.location.href='index.php';
+                </SCRIPT>");
+    } else {
+        if ($controller->loginUser($_POST["username"], $_POST["password"])) {
+            $_SESSION["username"] = $_POST["username"];
+            $_SESSION["password"] = $_POST["password"];
+            if (empty($_SESSION["redirect"])) {
+                $_SESSION["redirect"] = "index.php";
+            }
+            echo("<SCRIPT LANGUAGE='JavaScript'>
+                window.alert('Succesfull')
+                window.location.href=" . $_SESSION["redirect"] . ";
+                </SCRIPT>");
+        } else {
+            $_SESSION["attempt"]++;
+            echo("<SCRIPT LANGUAGE='JavaScript'>
+                window.alert('Username or Password incorect')
+                </SCRIPT>");
+        }
 
-
-    <div class="row col-sm-12 col-md-12">
-        <fieldset>
-            Unesite Takmicara: <input type="text" name="dancer" oninput="findDancer(this.value)">
-            <br>
-
-        </fieldset>
-        <fieldset>
-            <div id="fillWithAjax"></div>
-        </fieldset>
-        </br>
-    </div>
+    }
+    ?>
 
 
 </div>
@@ -353,6 +339,3 @@ $_SESSION["redirect"] = "finddancer.php";
 
 </body>
 </html>
-
-</body>
-

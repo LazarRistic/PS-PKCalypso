@@ -2,17 +2,16 @@
 /**
  * Created by PhpStorm.
  * User: Lazar
- * Date: 27.8.2015.
- * Time: 23:17
+ * Date: 3.9.2015.
+ * Time: 21:19
  */
+
 namespace root;
 
 session_start();
-$_SESSION["redirect"] = "finddancer.php";
+$_SESSION["redirect"] = "accountinformation.php"
 
 ?>
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -260,9 +259,9 @@ $_SESSION["redirect"] = "finddancer.php";
 <div class="container visible-md visible-lg">
     <div class="row col-md-12 col-lg-12">
         <ul class="nav nav-tabs">
-            <li><a href="index.php">Home</a></li>
+            <li class="active"><a href="index.php">Home</a></li>
             <li><a href="danceingclubs.php">Plesni Klubovi</a></li>
-            <li class="active"><a href="finddancer.php">Trazi Igraca</a></li>
+            <li><a href="finddancer.php">Trazi Igraca</a></li>
             <li><a href="register.php">Registujte Klub</a></li>
             <li><a href="#">O nama</a></li>
             <li class="dropdown">
@@ -333,19 +332,44 @@ $_SESSION["redirect"] = "finddancer.php";
 <!-- Body -->
 <div class="container">
 
-
     <div class="row col-sm-12 col-md-12">
-        <fieldset>
-            Unesite Takmicara: <input type="text" name="dancer" oninput="findDancer(this.value)">
-            <br>
+        <?php
+        if (!empty($_SESSION["usernmae"])) {
+            echo "Majcicu, ovde ide tabela, url ti se nalazi u komentaru ispod :D";
+            /*
+            $username = $_GET["dancer"];
+            $url = "http://localhost/IS%20PK%20Calypso/PS-PKCalypso/rest/dancer/json/" . $username;
 
-        </fieldset>
-        <fieldset>
-            <div id="fillWithAjax"></div>
-        </fieldset>
-        </br>
+            $curl = curl_init();
+
+            curl_setopt($curl, CURLOPT_URL, $url); //Url together with parameters
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_POST, false);
+            $curl_odgovor = curl_exec($curl);
+            curl_close($curl);
+            $curl_odg = json_decode($curl_odgovor);
+
+            $dance->setId($curl_odg->{'d_id'});
+            $dance->setFirstname($curl_odg->{'d_first_name'});
+            $dance->setLastname($curl_odg->{'d_last_name'});
+            $dance->setEmail($curl_odg->{'d_email'});
+            $dance->setCoutry($curl_odg->{'d_country'});
+            $dance->setPassword($curl_odg->{'d_password'});
+            $dance->setUsername($curl_odg->{'d_username'});
+            $dance->setGender($curl_odg->{'d_gender'});
+            $dance->setNationality($curl_odg->{'d_nationality'});
+            $danceClub->setId($curl_odg->{'d_club'}->{'dc_id'});
+            $danceClub->setTitle($curl_odg->{'d_club'}->{'dc_title'});
+            $danceClub->setAddress($curl_odg->{'d_club'}->{'dc_address'});
+            $danceClub->setEmail($curl_odg->{'d_club'}->{'dc_email'});
+            $danceClub->setCoutry($curl_odg->{'d_club'}->{'dc_country'});
+            $danceClub->setCity($curl_odg->{'d_club'}->{'dc_city'});
+            $danceClub->setWebSite($curl_odg->{'d_club'}->{'dc_web_site'});
+            echo "Majcicuuuuu, ovde ide tabela zapravo.";
+             */
+        }
+        ?>
     </div>
-
 
 </div>
 <!-- /# Body -->
@@ -353,6 +377,3 @@ $_SESSION["redirect"] = "finddancer.php";
 
 </body>
 </html>
-
-</body>
-

@@ -5,10 +5,14 @@
  * Date: 27.8.2015.
  * Time: 21:58
  */
+
+namespace root;
 use root\basic_information\DanceClub;
 
 include "basic_information/DanceClub.php";
 
+session_start();
+$_SESSION["redirect"] = "danceingClubs.php";
 ?>
 
 <!DOCTYPE html>
@@ -242,7 +246,7 @@ include "basic_information/DanceClub.php";
     <div class="row col-md-12 col-lg-12">
         <ul class="nav nav-tabs">
             <li><a href="index.html">Home</a></li>
-            <li class="active"><a href="danceingclubs.php">Plesni Klubovi</a></li>
+            <li><a href="danceingclubs.php">Plesni Klubovi</a></li>
             <li><a href="finddancer.php">Trazi Igraca</a></li>
             <li><a href="register.php">Registujte Klub</a></li>
             <li><a href="#">O nama</a></li>
@@ -285,6 +289,27 @@ include "basic_information/DanceClub.php";
             </li>
             <li><a href="#">Galerija</a></li>
             <li><a href="#">Kontakt</a></li>
+            <?php
+            if (empty($_SESSION["username"]) or empty($_SESSION["password"])) {
+                echo "<li><a href='login.php'>Log in</a></li>";
+            } else {
+                echo '
+                    <li class="dropdown"">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account Information<span class="caret"></span></a>
+                        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                            <li><a href="accountInformation.php">My information</a></li>
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Change</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" tabindex="-1">Change Account Information</a></li>
+                                    <li><a href="#">Change Username</a></li>
+                                    <li><a href="#">Change Password</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>';
+            }
+            ?>
         </ul>
     </div>
 </div>
