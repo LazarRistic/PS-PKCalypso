@@ -18,3 +18,22 @@ function findDancer(username, sort) {
     xmlhttp.open("GET", "ajaxFindDancer?username=" + username + "&sort=" + sort, true);
     xmlhttp.send();
 }
+
+function findDanceClub(danceClub) {
+    if (danceClub == "") {
+        document.getElementById("fillWithAjax").innerHTML = "";
+        return;
+    }
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("fillWithAjax").innerHTML = xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET", "ajaxFindDanceClub.php?danceClub=" + danceClub, true);
+    xmlhttp.send();
+}

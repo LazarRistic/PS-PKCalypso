@@ -28,6 +28,7 @@ class Controller
                 return $dancerJSON;
             }
         }
+        return json_encode("There is no user with " . $username . " name");
     }
 
     public function getDancerClubFromId($id)
@@ -85,5 +86,18 @@ class Controller
             }
         }
         return false;
+    }
+
+    public function loadDanceClubFromUsernameJSON($title)
+    {
+        $bazaBroker = new BazaBrokerSQL();
+        $danceClubsArray = array();
+        $danceClubsArray = $bazaBroker->getAllDanceClub();
+        foreach ($danceClubsArray as $danceClub) {
+            if ($danceClub->getTitle() == $title) {
+                return json_encode($danceClub->getJsonData());
+            }
+        }
+        return json_encode("There is no Dance Club with that username");
     }
 }

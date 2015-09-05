@@ -24,28 +24,31 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_POST, false);
 $curl_odgovor = curl_exec($curl);
 curl_close($curl);
-$curl_odg = json_decode($curl_odgovor);
-$dance = new Dancer();
-$danceClub = new DanceClub();
+if (substr($curl_odgovor, 0, 6) === '"There') {
+    echo $curl_odgovor;
+} else {
+    $curl_odg = json_decode($curl_odgovor);
+    $dance = new Dancer();
+    $danceClub = new DanceClub();
 
-$dance->setId($curl_odg->{'d_id'});
-$dance->setFirstname($curl_odg->{'d_first_name'});
-$dance->setLastname($curl_odg->{'d_last_name'});
-$dance->setEmail($curl_odg->{'d_email'});
-$dance->setCoutry($curl_odg->{'d_country'});
-$dance->setPassword($curl_odg->{'d_password'});
-$dance->setUsername($curl_odg->{'d_username'});
-$dance->setGender($curl_odg->{'d_gender'});
-$dance->setNationality($curl_odg->{'d_nationality'});
-$danceClub->setId($curl_odg->{'d_club'}->{'dc_id'});
-$danceClub->setTitle($curl_odg->{'d_club'}->{'dc_title'});
-$danceClub->setAddress($curl_odg->{'d_club'}->{'dc_address'});
-$danceClub->setEmail($curl_odg->{'d_club'}->{'dc_email'});
-$danceClub->setCoutry($curl_odg->{'d_club'}->{'dc_country'});
-$danceClub->setCity($curl_odg->{'d_club'}->{'dc_city'});
-$danceClub->setWebSite($curl_odg->{'d_club'}->{'dc_web_site'});
-$dance->setDanceClub($danceClub);
-echo "
+    $dance->setId($curl_odg->{'d_id'});
+    $dance->setFirstname($curl_odg->{'d_first_name'});
+    $dance->setLastname($curl_odg->{'d_last_name'});
+    $dance->setEmail($curl_odg->{'d_email'});
+    $dance->setCoutry($curl_odg->{'d_country'});
+    $dance->setPassword($curl_odg->{'d_password'});
+    $dance->setUsername($curl_odg->{'d_username'});
+    $dance->setGender($curl_odg->{'d_gender'});
+    $dance->setNationality($curl_odg->{'d_nationality'});
+    $danceClub->setId($curl_odg->{'d_club'}->{'dc_id'});
+    $danceClub->setTitle($curl_odg->{'d_club'}->{'dc_title'});
+    $danceClub->setAddress($curl_odg->{'d_club'}->{'dc_address'});
+    $danceClub->setEmail($curl_odg->{'d_club'}->{'dc_email'});
+    $danceClub->setCoutry($curl_odg->{'d_club'}->{'dc_country'});
+    $danceClub->setCity($curl_odg->{'d_club'}->{'dc_city'});
+    $danceClub->setWebSite($curl_odg->{'d_club'}->{'dc_web_site'});
+    $dance->setDanceClub($danceClub);
+    echo "
         <table class='table table-striped'>
             <thead>
                 <tr>
@@ -70,6 +73,8 @@ echo "
                 </tr>
             </tbody>
         </table>";
+}
+
 
 
 

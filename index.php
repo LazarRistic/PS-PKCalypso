@@ -240,7 +240,13 @@ $_SESSION["redirect"] = "index.php";
         <ul class="nav nav-tabs">
             <li class="active"><a href="index.php">Home</a></li>
             <li><a href="danceingclubs.php">Plesni Klubovi</a></li>
-            <li><a href="finddancer.php">Trazi Igraca</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pretrazi<span class="caret"></span></a>
+                <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                    <li><a href="finddancer.php">Igraca</a></li>
+                    <li><a href="finddanceclub.php">Plesnih Klubova</a></li>
+                </ul>
+            </li>
             <li><a href="register.php">Registujte Klub</a></li>
             <li><a href="#">O nama</a></li>
             <li class="dropdown">

@@ -2,13 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: Lazar
- * Date: 27.8.2015.
- * Time: 23:17
+ * Date: 4.9.2015.
+ * Time: 22:24
  */
+
 namespace root;
 
 session_start();
-$_SESSION["redirect"] = "finddancer.php";
+$_SESSION["redirect"] = "finddanceclub.php";
 
 ?>
 
@@ -34,42 +35,7 @@ $_SESSION["redirect"] = "finddancer.php";
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/
             respond.min.js"></script>
     <![endif]-->
-    <script>
-        function findDancer(dancer) {
-            if (dancer == "") {
-                document.getElementById("fillWithAjax").innerHTML = "";
-                return;
-            }
-            if (window.XMLHttpRequest) {
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    document.getElementById("fillWithAjax").innerHTML = xmlhttp.responseText;
-                }
-            }
-            xmlhttp.open("GET", "ajaxFindDancer.php?dancer=" + dancer, true);
-            xmlhttp.send();
-        }
-    </script>
-    <!-- JQUERY UI -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $(document).tooltip();
-        });
-    </script>
-    <style>
-        label {
-            display: inline-block;
-            width: 5em;
-        }
-    </style>
-    <!-- JQUERY UI -->
+    <script src="java_script/findDancer.js"></script>
 </head>
 <body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -281,10 +247,11 @@ $_SESSION["redirect"] = "finddancer.php";
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pretrazi<span class="caret"></span></a>
                 <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-                    <li class="active"><a href="finddancer.php">Igraca</a></li>
-                    <li><a href="finddanceclub.php">Plesnih Klubova</a></li>
+                    <li><a href="finddancer.php">Igraca</a></li>
+                    <li class="active"><a href="finddanceclub.php">Plesnih Klubova</a></li>
                 </ul>
             </li>
+
             <li><a href="register.php">Registujte Klub</a></li>
             <li><a href="#">O nama</a></li>
             <li class="dropdown">
@@ -358,8 +325,7 @@ $_SESSION["redirect"] = "finddancer.php";
 
     <div class="row col-sm-12 col-md-12">
         <fieldset>
-            Unesite Takmicara: <input type="text" name="dancer" oninput="findDancer(this.value)"
-                                      title="Unesite samo username takmicara">
+            Unesite naziv kluba: <input type="text" name="danceclub" oninput="findDanceClub(this.value)">
             <br>
 
         </fieldset>

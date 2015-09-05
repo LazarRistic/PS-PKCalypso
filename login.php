@@ -320,7 +320,7 @@ $controller = new Controller();
             }
             echo("<SCRIPT LANGUAGE='JavaScript'>
                 window.alert('Succesfull')
-                window.location.href=" . $_SESSION["redirect"] . ";
+                window.location.href='" . $_SESSION["redirect"] . "';
                 </SCRIPT>");
         } else {
             $_SESSION["attempt"]++;

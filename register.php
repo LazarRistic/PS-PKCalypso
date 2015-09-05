@@ -35,31 +35,40 @@ $_SESSION["redirect"] = "register.php";
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/
             respond.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-
-            $("#dodaj").click(function () {
-                var title = $("#dc_title").val();
-                var address = $("#dc_address").val();
-                var email = $("#dc_email").val();
-                var country = $("#dc_country").val();
-                var city = $("#dc_city").val();
-                var website = $("#dc_web_site").val();
-
-                if (title.length == 0) {
-                    alert("Naziv Kluba je obavezan.");
+        function registerDanceCLub() {
+            var title = document.getElementById("dc_title").value;
+            var address = document.getElementById("dc_address").value;
+            var email = document.getElementById("dc_email").value;
+            var country = document.getElementById("dc_country").value;
+            var city = document.getElementById("dc_city").value;
+            var website
+            document.getElementById("dc_web_site").value;
+            var obj = {
+                'dc_title': title,
+                'dc_address': address,
+                'dc_email': email,
+                'dc_country': country,
+                'dc_city': city,
+                'dc_web_site': website
+            };
+            document.write(JSON.stringify(obj));
+            $.ajax({
+                type: 'POST',
+                url: "http://localhost/IS%20PK%20Calypso/PS-PKCalypso/rest/register",
+                dataType: JSON,
+                data: {
+                    "danceClub": JSON.stringify(obj)
+                },
+                success: function (data) {
+                    alert("success");
                 }
-                else {
-                    var sacuvaj = $.ajax({
-                        type: 'GET',
-                        url: 'http://localhost/IS%20PK%20Calypso/PS-PKCalypso/rest/register/' + title + '/' + address + '/' + email + '/' + country + '/' + city + '/+'
-                        website',
-                        //url: 'http://localhost/trecidomaci/servis_artikal.php?naziv='+naziv+'&cena='+cena+'&brojDostupnihKomada='+komad,
-                        data: {get_param: 'value'},
-                        dataType: 'html'
-                    });
+                error: function (e) {
+                    alert("error" + e)
                 }
             });
-        });
+        */
+        }
+
     </script>
     <![endif]-->
 </head>
@@ -348,7 +357,7 @@ $_SESSION["redirect"] = "register.php";
             $controller->registerDanceClub($_POST["dc_title"], $_POST["dc_address"], $_POST["dc_email"], $_POST["dc_country"], $_POST["dc_city"], $_POST["dc_web_site"]);
         }
         echo '
-        <form method="post" if="forma">
+        <form>
             <div class="form-group">
                 <input class="form-control" type="text" placeholder="Name of Dance Club" id="dc_title" name="dc_title" >
                 <input class="form-control" type="text" placeholder="Address" id="dc_address" name="dc_address">
@@ -356,7 +365,7 @@ $_SESSION["redirect"] = "register.php";
                 <input class="form-control" type="text" placeholder="Country" id="dc_country" name="dc_country">
                 <input class="form-control" type="text" placeholder="City" id="dc_city" name="dc_city">
                 <input class="form-control" type="text" placeholder="Website" id="dc_web_site" name="dc_web_site">
-                <button type="submit" id="dodaj" name="dodaj">Register</button>
+                <button onclick="registerDanceCLub()" type="submit" id="dodaj" name="dodaj">Register</button>
             </div>
         </form>';
 
